@@ -1,0 +1,60 @@
+Powershell commands in order to setup everything
+
+-- install microsoft.powershell
+winget install microsoft.powershell
+
+-- relaunch terminal
+-- go into Windows Terminal Settings
+-- set Powershell as default profile (not Windows Powershell)
+-- enable launch on machine startup
+-- set when terminal starts, open windows from previous session
+-- 
+-- go to powershell profile settings
+-- set the colorscheme to solarized dark
+-- install comic shanns mono from Nerd Fonts
+-- set the font to Comic Shanns Mono
+-- set the font size to 14
+-- enable built-in glyphs, full color emojis, and retro terminal effects
+-- set cursor shape to vintage
+-- set cursor size to 25
+-- set the background image to outrun.gif
+-- set intense text style to bright colors
+-- set the background opacity to 45%
+-- set enable acrylic material to true
+
+-- non-admin terminal running microsoft.powershell
+-- install scoop package manager for windows terminal
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
+scoop install aria2
+scoop update
+scoop config aria2-warning-enabled false
+scoop bucket add games
+scoop bucket add extras
+scoop bucket add nerd-fonts
+
+-- scoop install nerd-fonts/comic-shanns-mono
+
+scoop install sudo
+sudo scoop install 7zip git openssh --global
+git config --global credential.helper manager
+C:\ProgramData\scoop\apps\git\current\install-context.reg
+C:\ProgramData\scoop\apps\git\current\install-file-associations.reg
+sudo C:\ProgramData\scoop\apps\openssh\current\install-sshd.ps1
+scoop install curl grep sed less touch
+scoop install python ruby go perl
+C:\Users\kdavis\scoop\apps\python\current\install-pep-514.reg
+gem update --system 3.6.6
+scoop install msys2
+ridk install
+scoop install lua neovim
+scoop install extras/vcredist2022
+-- Hit Yes a few times
+scoop uninstall vcredist2022
+
+-- Download the current neovim setup
+cd C:\Users\kdavis\AppData\Local
+git clone KorbinMDavis-PTISD/nvim
+
+
